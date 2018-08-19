@@ -1,4 +1,4 @@
-# pcl-for-android
+# pcl-for-android-ndk
 
 Bash scripts for cross compiling PCL ( https://github.com/PointCloudLibrary/pcl ) and its dependencies for Android.
 
