@@ -99,12 +99,12 @@ echo -e "###########################################\033[m\n\n"
 
 cd ${PCL_ROOT}
 
-#[ -f Makefile ] && make clean
+[ -f Makefile ] && make clean
 
-#rm -rf ${ROOT}/pcl/CMakeCache.txt ${ROOT}/pcl/CMakeFiles
+rm -rf ${ROOT}/pcl/CMakeCache.txt ${ROOT}/pcl/CMakeFiles
 
-#rm -rf ${ROOT}/pcl-android
-#mkdir ${ROOT}/pcl-android
+rm -rf ${ROOT}/pcl-android
+mkdir ${ROOT}/pcl-android
 
 function cmake_pcl {
   cmake . -DCMAKE_BUILD_TYPE:STRING=Release \
@@ -144,8 +144,8 @@ function cmake_pcl {
 }
 
 ### pcl cmake files do not set library paths properly. Therefore cmake has to be run twice.
-#cmake_pcl
-#cmake_pcl
+cmake_pcl
+cmake_pcl
 
 echo -e "\n\n\033[1;32m make -j$jobs\033[m\n"
 echo -e "\n\n\033[1;32m this will run for a while... time to drink a\n"

@@ -7,13 +7,24 @@ Bash scripts for cross compiling PCL ( https://github.com/PointCloudLibrary/pcl 
 ```
 $ sudo apt-get install git make cmake
 ```
-## Additional Changes
-a) Update the CMakeLists.txt file of "search" module. So that it looks like this 
+## Cross-compilation
+
+```
+$ git clone https://github.com/bashbug/pcl-for-android.git
+$ export ANDROID_NDK=PATH_TO_YOUR_LOCAL_ANDROID_NDK_FOLDER
+$ ./download-setup.sh
+$ ./pcl-build-for-android.sh
+```
+
+
+## Additional Changes before compilation
+```download-setup.sh``` will download the required libraries. Before running ```pcl-build-for-android.sh``` make the following changes in pcl located under build folder. 
+a) Update the CMakeLists.txt file of "search" module, so that it looks like this 
 ```
 set(srcs
         src/search.cpp
         src/kdtree.cpp
-	    ../common/src/projection_matrix.cpp
+	../common/src/projection_matrix.cpp
         src/brute_force.cpp
         src/organized.cpp
         src/octree.cpp
@@ -36,15 +47,6 @@ add_definitions(-DEIGEN_DONT_ALIGN)
 #define EIGEN_DONT_ALIGN 1 
 ```
 
-
-## Cross-compilation
-
-```
-$ git clone https://github.com/bashbug/pcl-for-android.git
-$ export ANDROID_NDK=PATH_TO_YOUR_LOCAL_ANDROID_NDK_FOLDER
-$ ./download-setup.sh
-$ ./pcl-build-for-android.sh
-```
 ## Android.mk 
 
 I have included a sample jni folder including Android.mk & Application.mk. Update the paths accordingly. Tested with Android-Ndk-14b. 
