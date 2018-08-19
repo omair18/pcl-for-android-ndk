@@ -19,6 +19,7 @@ $ ./pcl-build-for-android.sh
 
 ## Additional Changes before compilation
 ```download-setup.sh``` will download the required libraries. Before running ```pcl-build-for-android.sh``` make the following changes in pcl located under build folder. 
+
 a) Update the CMakeLists.txt file of "search" module, so that it looks like this 
 ```
 set(srcs
